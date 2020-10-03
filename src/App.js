@@ -7,16 +7,22 @@ import { SearchBox } from './components/search-box/search-box.component';
 class App extends React.Component {
   constructor(){
     super();
+   
     this.state={
       monsters:[],
       searchField: ''
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount(){
     fetch('http://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(users => this.setState({monsters: users}))
+  }
+
+  handleChange(e){
+    this.setState({searchField:e.target.value});
   }
 
   render(){
