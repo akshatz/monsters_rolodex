@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    fetch('http://jsonplaceholder.typicode.com/users')
+    fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(users => this.setState({monsters: users}))
   }
@@ -41,7 +41,7 @@ class App extends React.Component {
           handleChange = {e => {this.setState({searchField:e.target.value})}}
         />
         <CardList monsters={filteredMonsters}></CardList>
-      </div>
+       </div>
     );
   }
 }
